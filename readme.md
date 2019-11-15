@@ -1,35 +1,26 @@
-# INF99X: Sample Course
+﻿# DP-050 Azure로 SQL 워크로드 마이그레이션
 
-- **[Download Latest Student Handbook and AllFiles Content](../../releases/latest)**
-- **Are you a MCT?** - Have a look at our [GitHub User Guide for MCTs](https://microsoftlearning.github.io/MCT-User-Guide/)
-- **Need to manually build the lab instructions?** - Instructions are available in the [MicrosoftLearning/Docker-Build](https://github.com/MicrosoftLearning/Docker-Build) repository
+이 과정에서는 먼저 데이터 현대화 프로젝트를 정상적으로 완료하려면 수행해야 하는 준비 단계와, 해당 프로젝트의 여러 단계에서 작업을 더 쉽게 수행하는 데 사용할 수 있는 도구를 살펴봅니다. 그런 다음 Azure에서 실행되는 다양한 SQL 서비스로 SQL 워크로드를 마이그레이션하는 여러 가지 방법을 살펴봅니다.
 
-## What are we doing?
+아래에는 각 모듈의 랩 목표가 요약되어 있습니다.
 
-- To support this course, we will need to make frequent updates to the course content to keep it current with the Azure services used in the course.  We are publishing the lab instructions and lab files on GitHub to allow for open contributions between the course authors and MCTs to keep the content current with changes in the Azure platform.
+## 랩 1 - 데이터 플랫폼 현대화 소개
 
-- We hope that this brings a sense of collaboration to the labs like we've never had before - when Azure changes and you find it first during a live delivery, go ahead and make an enhancement right in the lab source.  Help your fellow MCTs.
+학생들은 이 모듈에서 파악한 정보를 활용하여 데이터 플랫폼 현대화, 그리고 조직에서 현대화 프로젝트를 진행해야 하는 이유/방법 관련 지식을 실제로 시연합니다. 그리고 Azure로 이동하는 비용을 결정하는 방법도 시연하며, 또한 작업 중인 환경 관련 정보도 수집합니다. 그리고 마지막으로 지정된 시나리오에 사용해야 하는 데이터 플랫폼 현대화 전략을 결정합니다.
 
-## How should I use these files relative to the released MOC files?
+## 랩 2 - 데이터 마이그레이션에 적합한 도구 선택
 
-- The instructor handbook and PowerPoints are still going to be your primary source for teaching the course content.
+학생들은 규정된 데이터 플랫폼 현대화 단계에서 두 가지 도구를 사용하여 자동화된 방식으로 환경 검색을 수행합니다. 또한 마이그레이션 전에 호환성 문제를 파악하고, 온-프레미스 서버 마이그레이션을 수행하기 전에 문제를 해결하는 방법을 제시하는 계획을 정의합니다. 마지막으로 Azure SQL Database의 대상 버전에서 워크로드의 성능을 평가합니다.
 
-- These files on GitHub are designed to be used in conjunction with the student handbook, but are in GitHub as a central repository so MCTs and course authors can have a shared source for the latest lab files.
+## 랩 3 - Azure Virtual Machines로 SQL 워크로드 마이그레이션
 
-- It will be recommended that for every delivery, trainers check GitHub for any changes that may have been made to support the latest Azure services, and get the latest files for their delivery.
+학생들은 Azure에서 SQL Server VM을 프로비전하는 작업을 포함하여 데이터 마이그레이션용으로 환경을 구성합니다.
+그런 다음 DMA(Data Migration Assistant)를 사용하여 SQL Server 2008 R2 환경에서 데이터베이스를 전송하는 방식으로 Azure Virtual Machines의 SQL Server로 데이터 마이그레이션을 수행합니다.
 
-## What about changes to the student handbook?
+## 랩 4 - SQL Database로 SQL 워크로드 마이그레이션
 
-- We will review the student handbook on a quarterly basis and update through the normal MOC release channels as needed.
+학생은 DMA(Data Migration Assistant)를 사용하여 온-프레미스 SQL Server에서 Azure SQL Database로 오프라인 마이그레이션을 수행합니다. 그 전에 Azure에서 적절한 마이그레이션 대상 SQL Server 인스턴스 옵션을 결정합니다. 그런 다음 마이그레이션 도구를 사용해 Azure SQL Database로 데이터를 로드/이동하여 마이그레이션을 완료합니다.
 
-## How do I contribute?
+## 랩 5 - SQL Database Managed Instance로 SQL 워크로드 마이그레이션
 
-- Any MCT can submit a pull request to the code or content in the GitHub repro, Microsoft and the course author will triage and include content and lab code changes as needed.
-
-- You can submit bugs, changes, improvement and ideas.  Find a new Azure feature before we have?  Submit a new demo!
-
-## Notes
-
-### Classroom Materials
-
-It is strongly recommended that MCTs and Partners access these materials and in turn, provide them separately to students.  Pointing students directly to GitHub to access Lab steps as part of an ongoing class will require them to access yet another UI as part of the course, contributing to a confusing experience for the student. An explanation to the student regarding why they are receiving separate Lab instructions can highlight the nature of an always-changing cloud-based interface and platform. Microsoft Learning support for accessing files on GitHub and support for navigation of the GitHub site is limited to MCTs teaching this course only.
+이 랩에서는 먼저 온-프레미스 SQL Server를 Azure SQL Database Managed Instance로 마이그레이션하는 데 사용할 마이그레이션 프로세스를 평가합니다. 그런 다음 Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행합니다. 또한 데이터를 마이그레이션하고 Managed Instance에 로드한 후에, 데이터베이스에 액세스하는 애플리케이션의 애플리케이션 호환성을 확인합니다. 이 랩은 시뮬레이션 환경으로 진행됩니다.
