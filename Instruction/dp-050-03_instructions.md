@@ -70,6 +70,7 @@ lab:
     디스크 설정을 검토하되 변경하지는 말고 그대로 적용합니다.
 
 1. **다음: 네트워킹을 선택합니다.**
+    네트워킹 설정을 검토하되 변경하지는 말고 그대로 적용합니다.
 1. **다음: 관리를 선택합니다.**
 
     관리 설정을 검토하고 부트 진단을 다음과 같이 변경합니다.
@@ -81,9 +82,9 @@ lab:
 
     SQL Server 설정 탭에서 다음 정보를 입력합니다.
 
-    a. SQL 연결: **공용(인터넷)** 선택
-    b. SQL 인증: **사용 선택**
-    c. 암호 상자에 **Pa55w.rd.123456789** 입력
+    1. SQL 연결: **공용(인터넷)** 선택
+    1. SQL 인증: **사용 선택**
+    1. 암호 상자에 **Pa55w.rd.123456789** 입력
 
 15. **검토 + 만들기**를 선택합니다.
 
@@ -123,11 +124,11 @@ lab:
 1. [Azure Portal](https://portal.azure.com)에서 **스토리지 계정** 블레이드를 선택합니다.
 2. **추가**를 선택합니다.
 3. 스토리지 계정 만들기 창에서 다음 세부 정보를 입력합니다.
-    a. 리소스 그룹: **기존**을 선택합니다.
-    b. 이전 연습에서 만든 **DP-050-Training** 리소스 그룹을 선택합니다.
-    c. 스토리지 계정 이름: **dp050storagexxxx**를 입력합니다. 여기서 xxxx는 임의의 문자 수입니다.
-    d. 위치: 이전 연습에서 가상 머신을 만든 위치에 가장 가까운 위치를 선택합니다.
-    e. 다른 기본 설정은 그대로 유지합니다.
+    1. 리소스 그룹: **기존**을 선택합니다.
+    1. 이전 연습에서 만든 **DP-050-Training** 리소스 그룹을 선택합니다.
+    1. 스토리지 계정 이름: **dp050storagexxxx**를 입력합니다. 여기서 xxxx는 임의의 문자 수입니다.
+    1. 위치: 이전 연습에서 가상 머신을 만든 위치에 가장 가까운 위치를 선택합니다.
+    1. 다른 기본 설정은 그대로 유지합니다.
 4. **검토 + 만들기**를 클릭하여 고급 및 태그 섹션을 건너뜁니다.
 5. **만들기**를 선택합니다
 
@@ -145,9 +146,6 @@ lab:
 4. **만들기**를 선택합니다
 5. 파일 공유를 만든 후 생성된 파일 공유 오른쪽에서 ...를 선택합니다.
 6. 드롭다운 목록에서 **연결**을 선택합니다.
-
-![드롭다운 목록](https://github.com/MicrosoftLearning/DP-050-Migrating-SQL-Workloads-to-Azure/blob/master/images/dropdown.png)
-
 7. 연결 블레이드에서 드라이브 문자 **U:**를 선택합니다.
 8. 아래에 나와 있는 텍스트에서 연결 명령 구문을 복사합니다. 키가 슬래시로 시작하지 않는 경우에는 이 명령을 실행할 수도 있습니다.
 
@@ -196,14 +194,25 @@ cmdkey /add:dp050storagexxxx.file.core.windows.net /user:Azure\dp050storagexxxx 
 2.	텍스트를 복사합니다.
 3.	SQL Management Studio에서 로컬 서버(LONDON)에 연결된 상태로 새 쿼리를 만듭니다.
 4.	MapNetworkdrive의 텍스트를 쿼리 창에 붙여넣습니다.
-5.	다음 스크린샷을 반영하여 쿼리를 변경한 다음 xp_cmhdshell 저장 프로시저를 통해 명령줄을 실행합니다.
- ![sp_configure 옵션](https://github.com/MicrosoftLearning/DP-050-Migrating-SQL-Workloads-to-Azure/blob/master/images/cmdshell.png)
+5.	다음 스크린샷을 반영하여 쿼리를 변경한 다음 xp_cmddshell 저장 프로시저를 통해 명령줄을 실행합니다.
+
+```sql
+SP_CONFIGURE 'show advanced options', 1
+RECONFIGURE
+SP_CONFIGURE 'xp_cmdshell', 1
+RECONFIGURE
+GO
+EXEC xp_cmdshell 'cmdkey /add:dp050storagexxxx.file.core.windows.net /user:Azure\dp050storagexxxx /pass:Mcty80xn7j'
+EXEC xp_cmdshell 'net use U: \\dp050storagexxxx.file.core.windows.net\backupshare /persistent:Yes'
+EXEC xp_cmdshell 'dir u:'
+```
+
 6.	쿼리를 실행하고 네트워크 드라이브에 액세스할 수 있는지 유효성을 검사합니다.
 7.	Labfiles 폴더에 쿼리를 **MapNetworkdrive.sql**로 저장합니다.
 8.	새 쿼리 창을 시작한 후 다음 쿼리를 실행하여 xp_cmdshell을 사용하지 않도록 설정합니다.
 
 ```sql
-    SP_CONFIGURE ‘xp_cmdshell’,1
+    SP_CONFIGURE ‘xp_cmdshell’,0
 ```
 
 9.	개체 탐색기에서 Azure VM SQL Server 인스턴스를 선택하고 새 쿼리를 만듭니다.
@@ -225,10 +234,10 @@ cmdkey /add:dp050storagexxxx.file.core.windows.net /user:Azure\dp050storagexxxx 
 
 1.	SQL Server 2008 R2 랩 환경에서 **"Microsoft Data Migration Assistant"** 애플리케이션을 엽니다.
 2.	**+**를 선택하면 새 프로젝트 대화 상자가 열립니다. 이 대화 상자에 다음 정보를 입력합니다.
-    a. 프로젝트 유형: **마이그레이션**
-    b.	프로젝트 이름: **SQL VM으로 마이그레이션**
-    c.	원본 서버 유형: **SQL Server**
-    d.	대상 서버 유형: **Azure Virtual Machines의 SQL 서버**
+    1. 프로젝트 유형: **마이그레이션**
+    1.	프로젝트 이름: **SQL VM으로 마이그레이션**
+    1.	원본 서버 유형: **SQL Server**
+    1.	대상 서버 유형: **Azure Virtual Machines의 SQL 서버**
 3.	**만들기**를 클릭합니다.
 4.	**다음**을 클릭합니다.
 5.	원본 서버 세부 정보 서버 이름 대화 상자에 **localhost의 서버 이름**을 입력합니다.
@@ -241,9 +250,9 @@ cmdkey /add:dp050storagexxxx.file.core.windows.net /user:Azure\dp050storagexxxx 
     •	AdventureworksDW2008_4M
     •	Reportserver
     •	ReportServerTempDB
-12.	공유 위치 대화 상자에 **U:\*를 입력합니다.*
+12.	마이그레이션 시작: U:\
 13.	로그인 선택 창의 내용을 검토합니다.
-14.	**마이그레이션 시작**을 클릭합니다.
+14.	**StartMigration**을 클릭합니다.
 
 **참고:** 모든 데이터베이스는 공유 네트워크 드라이브(Azure 파일 공유)에 백업됩니다.
 
