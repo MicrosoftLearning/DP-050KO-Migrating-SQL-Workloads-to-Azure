@@ -237,7 +237,7 @@
 
 ### Data Migration Assistant를 사용하여 SQL 데이터베이스 마이그레이션
 
-1. **LON-DEV-01** 가상 머신에서 **Microsoft Data Migration Assistant**를 열고 **+**를 선택합니다.
+1. **LON-DEV-01** 가상 머신에서 **Microsoft Data Migration Assistant**를 열고 **+** 를 선택합니다.
 1. **새로 만들기** 페이지에서 다음 값을 입력합니다.
 
     | 속성 | 값 |

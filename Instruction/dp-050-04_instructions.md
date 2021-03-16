@@ -131,7 +131,7 @@ Azure Cloud Shell은 Azure에서 호스트되며 브라우저를 통해 관리�
 ### 작업 1: Data Migration Assistant를 사용하여 마이그레이션 프로젝트 만들기
 
 1. 수업용으로 실행 중인 **LON-DEV-01** 가상 머신에 로그인합니다. 사용자 이름은 **administrator**이고 암호는 **Pa55w.rd**입니다.
-1. 새 데이터 마이그레이션 프로젝트를 만들려면 **Microsoft Data Migration Assistant**를 열고 **+**를 클릭합니다.
+1. 새 데이터 마이그레이션 프로젝트를 만들려면 **Microsoft Data Migration Assistant**를 열고 **+** 를 클릭합니다.
 1. **새로 만들기** 페이지에서 다음 값을 입력한 후에 **만들기**를 선택합니다.
 
     | 속성 | 값 |

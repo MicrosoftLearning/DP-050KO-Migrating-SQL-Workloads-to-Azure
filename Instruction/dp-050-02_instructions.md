@@ -51,7 +51,7 @@
 ### Data Migration Assistant를 사용하여 SQL Server에서 Azure SQL Database로의 마이그레이션 준비
 
 1. **시작** 단추를 선택하고 **데이터 마이그레이션**을 입력한 다음 **Microsoft Data Migration Assistant**를 선택합니다.
-1. 새 프로젝트를 만들려면 왼쪽의 **+**를 선택합니다.
+1. 새 프로젝트를 만들려면 왼쪽의 **+** 를 선택합니다.
 1. **새로 만들기** 페이지에서 다음 값을 입력한 후에 **만들기**를 선택합니다.
 
     | 속성 | 값 |
@@ -78,7 +78,7 @@
 
 ### Data Migration Assistant를 사용하여 SQL Server에서 Azure SQL Database Managed Instance로의 마이그레이션 준비
 
-1. 새 프로젝트를 만들려면 왼쪽의 **+**를 선택합니다.
+1. 새 프로젝트를 만들려면 왼쪽의 **+** 를 선택합니다.
 1. **새로 만들기** 페이지에서 다음 값을 입력한 후에 **만들기**를 선택합니다.
 
     | 속성 | 값 |
@@ -105,7 +105,7 @@
 
 ### Data Migration Assistant를 사용하여 SQL Server에서 Azure Virtual Machine에 설치된 SQL Server로의 마이그레이션 준비
 
-1. 새 프로젝트를 만들려면 왼쪽의 **+**를 선택합니다.
+1. 새 프로젝트를 만들려면 왼쪽의 **+** 를 선택합니다.
 1. **새로 만들기** 페이지에서 다음 값을 입력한 후에 **만들기**를 선택합니다.
 
     | 속성 | 값 |
